@@ -325,8 +325,11 @@ stripe listen --forward-to localhost:3000/api/webhooks/stripe
 # Generate TypeScript types from Sanity schema
 pnpm typegen
 
-# Import sample furniture data
+# Import sample product data
 npx sanity dataset import sample-data.ndjson
+
+# Add or update active clothing categories (safe to rerun; legacy categories are kept)
+npm run sanity:seed-categories
 ```
 
 #### 9. Start Development Server

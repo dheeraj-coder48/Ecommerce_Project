@@ -91,6 +91,20 @@
                   "type": "number"
                 },
                 "optional": true
+              },
+              "color": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "size": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
               }
             },
             "rest": {
@@ -345,72 +359,227 @@
         },
         "optional": true
       },
-      "material": {
+      "gender": {
         "type": "objectAttribute",
         "value": {
           "type": "union",
           "of": [
             {
               "type": "string",
-              "value": "wood"
+              "value": "men"
             },
             {
               "type": "string",
-              "value": "metal"
+              "value": "women"
             },
             {
               "type": "string",
-              "value": "fabric"
-            },
-            {
-              "type": "string",
-              "value": "leather"
-            },
-            {
-              "type": "string",
-              "value": "glass"
+              "value": "unisex"
             }
           ]
         },
         "optional": true
       },
-      "color": {
+      "fabric": {
         "type": "objectAttribute",
         "value": {
           "type": "union",
           "of": [
             {
               "type": "string",
-              "value": "black"
+              "value": "cotton"
             },
             {
               "type": "string",
-              "value": "white"
+              "value": "linen"
             },
             {
               "type": "string",
-              "value": "oak"
+              "value": "denim"
             },
             {
               "type": "string",
-              "value": "walnut"
+              "value": "polyester"
             },
             {
               "type": "string",
-              "value": "grey"
+              "value": "wool"
             },
             {
               "type": "string",
-              "value": "natural"
+              "value": "silk"
+            },
+            {
+              "type": "string",
+              "value": "rayon"
+            },
+            {
+              "type": "string",
+              "value": "nylon"
+            },
+            {
+              "type": "string",
+              "value": "fleece"
+            },
+            {
+              "type": "string",
+              "value": "velvet"
+            },
+            {
+              "type": "string",
+              "value": "knit"
             }
           ]
         },
         "optional": true
       },
-      "dimensions": {
+      "colors": {
         "type": "objectAttribute",
         "value": {
-          "type": "string"
+          "type": "array",
+          "of": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "black"
+              },
+              {
+                "type": "string",
+                "value": "white"
+              },
+              {
+                "type": "string",
+                "value": "navy"
+              },
+              {
+                "type": "string",
+                "value": "grey"
+              },
+              {
+                "type": "string",
+                "value": "beige"
+              },
+              {
+                "type": "string",
+                "value": "brown"
+              },
+              {
+                "type": "string",
+                "value": "olive"
+              },
+              {
+                "type": "string",
+                "value": "burgundy"
+              },
+              {
+                "type": "string",
+                "value": "blue"
+              },
+              {
+                "type": "string",
+                "value": "red"
+              },
+              {
+                "type": "string",
+                "value": "green"
+              },
+              {
+                "type": "string",
+                "value": "pink"
+              }
+            ]
+          }
+        },
+        "optional": true
+      },
+      "size": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "XS"
+              },
+              {
+                "type": "string",
+                "value": "S"
+              },
+              {
+                "type": "string",
+                "value": "M"
+              },
+              {
+                "type": "string",
+                "value": "L"
+              },
+              {
+                "type": "string",
+                "value": "XL"
+              },
+              {
+                "type": "string",
+                "value": "XXL"
+              }
+            ]
+          }
+        },
+        "optional": true
+      },
+      "fit": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "slim"
+            },
+            {
+              "type": "string",
+              "value": "regular"
+            },
+            {
+              "type": "string",
+              "value": "relaxed"
+            },
+            {
+              "type": "string",
+              "value": "oversized"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "pattern": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "solid"
+            },
+            {
+              "type": "string",
+              "value": "printed"
+            },
+            {
+              "type": "string",
+              "value": "striped"
+            },
+            {
+              "type": "string",
+              "value": "checked"
+            },
+            {
+              "type": "string",
+              "value": "graphic"
+            }
+          ]
         },
         "optional": true
       },
@@ -505,13 +674,6 @@
         "optional": true
       },
       "featured": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "boolean"
-        },
-        "optional": true
-      },
-      "assemblyRequired": {
         "type": "objectAttribute",
         "value": {
           "type": "boolean"
@@ -757,6 +919,26 @@
         "value": {
           "type": "inline",
           "name": "slug"
+        },
+        "optional": true
+      },
+      "departments": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "men"
+              },
+              {
+                "type": "string",
+                "value": "women"
+              }
+            ]
+          }
         },
         "optional": true
       },
