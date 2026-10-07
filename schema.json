@@ -153,10 +153,6 @@
             {
               "type": "string",
               "value": "men"
-            },
-            {
-              "type": "string",
-              "value": "kids"
             }
           ]
         },
@@ -701,14 +697,6 @@
             {
               "type": "string",
               "value": "men"
-            },
-            {
-              "type": "string",
-              "value": "kids"
-            },
-            {
-              "type": "string",
-              "value": "unisex"
             }
           ]
         },
@@ -729,10 +717,6 @@
             },
             {
               "type": "string",
-              "value": "denim"
-            },
-            {
-              "type": "string",
               "value": "polyester"
             },
             {
@@ -746,14 +730,6 @@
             {
               "type": "string",
               "value": "rayon"
-            },
-            {
-              "type": "string",
-              "value": "nylon"
-            },
-            {
-              "type": "string",
-              "value": "fleece"
             },
             {
               "type": "string",
@@ -821,6 +797,14 @@
               {
                 "type": "string",
                 "value": "pink"
+              },
+              {
+                "type": "string",
+                "value": "yellow"
+              },
+              {
+                "type": "string",
+                "value": "orange"
               }
             ]
           }
@@ -879,10 +863,6 @@
             {
               "type": "string",
               "value": "relaxed"
-            },
-            {
-              "type": "string",
-              "value": "oversized"
             }
           ]
         },
@@ -908,10 +888,6 @@
             {
               "type": "string",
               "value": "checked"
-            },
-            {
-              "type": "string",
-              "value": "graphic"
             }
           ]
         },
@@ -1178,10 +1154,6 @@
               {
                 "type": "string",
                 "value": "men"
-              },
-              {
-                "type": "string",
-                "value": "kids"
               }
             ]
           }
