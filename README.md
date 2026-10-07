@@ -1,714 +1,206 @@
-<!-- Badges -->
-<div align="center">
+# Kumar Collection
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)
-[![Sanity](https://img.shields.io/badge/Sanity-App%20SDK-F03E2F?logo=sanity)](https://www.sanity.io/)
-[![Clerk](https://img.shields.io/badge/Clerk-AgentKit-6C47FF?logo=clerk)](https://clerk.com/)
-[![Stripe](https://img.shields.io/badge/Stripe-Payments-008CDD?logo=stripe)](https://stripe.com/)
-[![AI](https://img.shields.io/badge/AI-Claude%20Sonnet-00A67E)](https://www.anthropic.com/)
+Kumar Collection is a men's traditional and ethnicwear ecommerce website. Its catalog is focused on garments such as kurtas, kurta sets, Nehru jackets, sherwanis, and related men's ethnicwear. The application uses Sanity for catalog and order content, Clerk for customer authentication, Stripe Checkout for card payments, and Shiprocket for delivery serviceability checks.
 
-</div>
+## Overview
 
-# 🛋️ AI-Powered E-commerce Platform with Real-time Content
+The Next.js storefront lets customers browse and filter the Sanity catalog, select available colors and sizes, save products to a signed-in wishlist, maintain a browser-persisted cart, check delivery availability by Indian pincode, and complete checkout. Signed-in customers can view their orders and ask the shopping assistant about products or their own order history.
 
-> Build a modern furniture e-commerce store with an AI shopping assistant, real-time inventory updates, and a powerful admin dashboard — all powered by cutting-edge technologies.
+The `/admin` area provides dashboard, inventory, order, and homepage banner screens backed by Sanity. Sanity Studio is also embedded at `/studio`.
 
-<div align="center">
+## Customer Features
 
-| 👥 **Who It's For** | ⚡ **Key Differentiators** | 🔧 **Technical Highlights** |
-|:---:|:---:|:---:|
-| Developers learning modern full-stack patterns with AI integration | **Sanity App SDK** for real-time data & **Clerk AgentKit** for authenticated AI tools | Claude AI shopping assistant, live inventory updates, Stripe checkout |
+- Homepage category tiles, active Sanity banners, and a featured-product carousel.
+- Product catalog with text search, category, size, fabric, color, fit, pattern, price-range, and in-stock filters. Sorting includes featured, newest, price ascending/descending, and relevance.
+- Product detail pages with an image gallery and enlarged image viewer, product information, available color and size choices, stock information, add-to-cart, and wishlist controls.
+- Cart stored in browser local storage through Zustand. Cart lines distinguish product/color/size combinations; checkout revalidates product prices, selected variants, and stock against Sanity.
+- Clerk-authenticated checkout and order history, including order detail pages.
+- Responsive layouts, loading states, toast feedback, and light/dark theme support.
+- Store location and policy information in the storefront footer and dialogs.
 
-</div>
+## Product & Catalog
 
----
+Products and categories are Sanity documents. Product fields include name, slug, description, INR price, category, men's department, fabric, colors, sizes, fit, pattern, images, stock, and featured status. The product schema requires a name, slug, category, and at least one image. Categories have a title, slug, men's department assignment, and optional image.
 
-## 👇🏼 DO THIS Before You Get Started
+Color and size are product-level choices, not separately inventoried SKU documents. Stock is checked and decremented at product level. The storefront's catalog queries and category selections are oriented toward men's ethnicwear.
 
-Use THESE links to set up your accounts (It's a special affiliate link which lets us continue to do builds like this FREE for you!):
+## Wishlist
 
-- [**Get Started with Sanity →**](https://www.sanity.io/sonny?utm_source=youtube&utm_medium=video&utm_content=ai-ecommerce-platform)
-- [**Get Started with Clerk →**](https://go.clerk.com/uc48FAP)
+Wishlist data is stored persistently in Sanity, in one `wishlist` document per Clerk user. Customers must be signed in to load or change it. The API derives the document ID from a hash of the Clerk user ID and stores references to saved products; the client store holds the currently loaded view and is not the persistence layer. The wishlist page and product-card/detail controls use this API. A Sanity write token is required for wishlist changes.
 
-| Service | Description | ‼️ LINK TO USE ‼️ |
-|---------|-------------|------|
-| 🧡 **Sanity** | Headless CMS with real-time capabilities & App SDK | [**Get Started with Sanity →**](https://www.sanity.io/sonny?utm_source=youtube&utm_medium=video&utm_content=ai-ecommerce-platform) |
-| 💜 **Clerk** | Authentication with AgentKit for AI context | [**Get Started with Clerk →**](https://go.clerk.com/uc48FAP) |
+## AI Features
 
----
+The customer shopping assistant is available through the chat interface and `/api/chat`. It uses the Vercel AI SDK with the Groq provider and the `openai/gpt-oss-120b` model. Its product search tool queries Sanity and can filter by query, category, fabric, color, department, size, fit, pattern, and INR price range. For signed-in users, a separate tool can retrieve that user's orders and statuses. The order tool is omitted for guests; it does not provide guest access to order records.
 
-## 🤔 What Is This App?
+The admin dashboard also requests generated store insights from `/api/admin/insights`, using store/order data and the same Groq model. The route and page exist in the codebase; configure `GROQ_API_KEY` to use AI requests.
 
-**Think of it as a furniture store with a brain.**
+## Delivery & Shipping
 
-This is a full-featured e-commerce platform where customers can:
+The product page delivery checker posts a six-digit Indian pincode to `POST /api/shipping/check-pincode`. The server authenticates with Shiprocket using server-only credentials, checks courier serviceability from the configured pickup pincode using a representative configured shipment weight, and returns availability plus an estimated delivery date or duration when Shiprocket provides one.
 
-- 🛒 **Browse & Buy** — Shop premium furniture with real-time stock updates
-- 🤖 **Chat with AI** — Ask the AI assistant to find products, check prices, or track orders
-- 📦 **Track Orders** — View order history and delivery status (when signed in)
+The Shiprocket helper caches authentication tokens and serviceability results in process memory; serviceability entries live for 10 minutes. The route also applies an in-memory limit of 30 requests per client address per five-minute window. These in-memory controls are local to a running application instance. Configure `SHIPROCKET_EMAIL`, `SHIPROCKET_PASSWORD`, `SHIPROCKET_PICKUP_PINCODE`, and `SHIPROCKET_SERVICEABILITY_WEIGHT_KG`; credentials and tokens must remain server-side.
 
-And store owners get:
+## Payments & Checkout
 
-- 📊 **AI-Powered Insights** — Dashboard with sales trends, inventory alerts, and action items
-- ✏️ **Real-time Editing** — Manage products and orders with instant updates via Sanity App SDK
-- 🔔 **Smart Alerts** — Low stock warnings and unfulfilled order notifications
+Checkout is created by the `createCheckoutSession` server action using Stripe Checkout. The configured payment method is **card**. Stripe collects the customer's phone number and shipping address during checkout; payment card details are handled by Stripe and are not stored in Sanity by this application. The success page retrieves the Checkout Session for display.
 
-### Key Concepts Explained
+`POST /api/webhooks/stripe` verifies Stripe's signature and handles `checkout.session.completed`. It uses an idempotency check to avoid creating duplicate orders, writes paid order and customer data to Sanity, and decrements product stock. Local webhook development can use the Stripe CLI to forward events to this route. Set the webhook signing secret in `STRIPE_WEBHOOK_SECRET`.
 
-| Term | What It Means |
-|------|---------------|
-| **CMS (Content Management System)** | Where all your products, orders, and content live — in this case, Sanity |
-| **Real-time Content** | When you update a product in Sanity, it instantly appears on the website |
-| **AI Shopping Assistant** | A chatbot powered by Claude AI that can search products and check your orders |
-| **App SDK** | Sanity's toolkit for building custom applications with direct database access |
+## Authentication
 
----
+Clerk is provided to the storefront. The `proxy.ts` Clerk middleware protects `/checkout`, `/checkout/success`, and `/orders` (including order details). Wishlist API requests also check the Clerk user on the server. The visible admin screens are Sanity App SDK interfaces; the admin layout does not implement a Clerk role-based access check, so access to Sanity and its project must be configured appropriately.
 
-## 🎯 What You'll Learn
+## Admin Panel
 
-✅ **Next.js 16** with App Router & Server/Client Components + Server Actions!
+The `/admin` dashboard includes store statistics, recent orders, low-stock information, AI insights, and a create-product entry point. `/admin/inventory` lists products and supports creating and editing product documents, image upload, publishing controls, featured status, inventory, and product deletion. `/admin/orders` lists and filters orders; order details support order-status and address editing. `/admin/banners` supports homepage banner creation, editing, ordering/activation, and deletion, with destinations for categories, products, or custom links.
 
-✅ **Clerk authentication** with AgentKit for AI-aware user context!
+The Sanity schemas define `product`, `category`, `banner`, `order`, `customer`, and `wishlist` document types. Categories can be maintained in Sanity Studio; there is no separate category-management page under `/admin`.
 
-✅ **Sanity CMS** with App SDK for real-time data mutations & live content updates!
+## CMS / Sanity
 
-✅ **Vercel AI SDK** with AI Gateway for multi-provider LLM support (Claude, GPT, Cohere)!
+Sanity is the content store for catalog, categories, banners, customers, orders, and wishlists. GROQ queries live in `lib/sanity/queries/`. The embedded Studio is available at `/studio`; its structure and schema are configured in `sanity/` and `sanity.config.ts`. The application uses `next-sanity` clients and a `SanityLive` provider, while admin screens use `@sanity/sdk` and `@sanity/sdk-react` for document interactions. A server-side write client is used for mutations such as wishlist persistence and Stripe webhook order/stock updates.
 
-✅ **Stripe payments** with webhooks for secure checkout & order processing!
+Generated Sanity types are in `sanity.types.ts`; `npm run typegen` extracts the schema and regenerates them.
 
-✅ **shadcn/ui + Tailwind CSS v4** for beautiful, accessible UI components!
+## Tech Stack
 
-✅ **Zustand state management** with localStorage persistence for cart!
+Versions below are the versions/ranges declared in `package.json`.
 
-✅ **Mobile-responsive design** with modern layouts & dark mode!
+| Area | Technologies |
+| --- | --- |
+| Application | Next.js `16.0.7`, React / React DOM `19.2.3`, TypeScript `^5` |
+| Styling and UI | Tailwind CSS `^4`, Radix UI primitives, shadcn-style local UI components, Lucide icons, Sonner |
+| CMS | Sanity `^4.20.3`, `next-sanity` `^11.6.10`, Sanity SDK and SDK React `^2.3.1` |
+| Authentication | Clerk Next.js `^6.36.0` |
+| Payments | Stripe Node SDK `^20.0.0` |
+| Shipping | Shiprocket external API, called by the server-side integration |
+| AI | Vercel AI SDK `^6.0.39`, AI SDK React `^3.0.39`, Groq provider `^3.0.10` |
+| Client state and validation | Zustand `^5.0.9`, Zod `^4.1.13` |
+| Code quality | Biome `2.2.0` |
 
-✅ **AI Shopping Assistant** with custom tools for product search & order tracking!
+## Project Structure
 
-✅ **AI Admin Dashboard** with Claude-powered insights, sales trends & recommendations!
-
-✅ **GROQ queries** with TypeGen for type-safe Sanity data fetching!
-
-✅ **Real-time UI updates** via Sanity Live — no polling required!
-
-✅ **Custom AI tools** scoped to authenticated users (orders only visible when signed in)!
-
-✅ **Webhook-driven order creation** with automatic stock management!
-
-✅ **Embedded Sanity Studio** for content management at `/studio`! + SO MUCH MORE!
-
----
-
-## 🚀 Before We Dive In - Join the PAPAFAM!
-
-**Want to build apps like this from scratch?**
-
-Join thousands of developers learning to build production-ready applications with the latest technologies.
-
-### PAPAFAM Community Benefits
-
-- 🎓 Step-by-step video tutorials
-- 💬 Private Discord community
-- 🔥 Weekly coding challenges
-- 📁 Access to all project source code
-- 🏆 Certificate of completion
-
-### Real Results
-
-> "I landed my first developer job after completing the PAPAFAM course!" — Community Member
-
-<div align="center">
-
-### [🎯 Join the PAPAFAM Course →](https://www.papareact.com/course)
-
-</div>
-
----
-
-## ✨ Features
-
-### For Shoppers
-
-| Feature | Description |
-|---------|-------------|
-| 🤖 **AI Shopping Assistant** | Natural language product search, filter by material/color/price, get recommendations |
-| 📦 **Order Tracking** | View your order history and status (requires sign-in) |
-| 🛒 **Smart Cart** | Persistent cart with real-time stock validation |
-| 💳 **Secure Checkout** | Stripe-powered payments with address collection |
-| 🔄 **Real-time Stock** | See live inventory levels — no surprises at checkout |
-
-### For Admins
-
-| Feature | Description |
-|---------|-------------|
-| 🧠 **AI Dashboard Insights** | Sales trends, inventory alerts, and actionable recommendations powered by Claude |
-| 📝 **Product Management** | Create, edit, and publish products directly via Sanity App SDK |
-| 📋 **Order Management** | Update order status (paid → shipped → delivered) |
-| ⚠️ **Low Stock Alerts** | Automatic warnings when inventory runs low |
-| 📊 **Analytics** | Revenue tracking, order counts, and performance metrics |
-
-### Technical Features (The Smart Stuff)
-
-| Feature | Technology | Why It Matters |
-|---------|------------|----------------|
-| ⚡ **Real-time Updates** | Sanity Live + App SDK | Content changes appear instantly without refresh |
-| 🔐 **Authenticated AI** | Clerk AgentKit | AI assistant knows who you are and can access YOUR orders |
-| 🧠 **AI Gateway** | Vercel AI Gateway | Use Claude, GPT, or other models — easily swappable |
-| 🛒 **Persisted Cart** | Zustand + localStorage | Cart survives page refreshes and browser restarts |
-| 📱 **Responsive Design** | Tailwind CSS + Shadcn/UI | Beautiful UI on any device |
-| ⚙️ **Type Safety** | TypeScript + Sanity TypeGen | Auto-generated types from your CMS schema |
-
----
-
-## 🔄 How It Works
-
-### User Shopping Flow
-
-```mermaid
-flowchart LR
-    A[Browse Products] --> B[Add to Cart]
-    B --> C[Checkout]
-    C --> D[Stripe Payment]
-    D --> E[Webhook]
-    E --> F[Order Created in Sanity]
-    F --> G[Stock Updated]
-    
-    A --> H[Chat with AI]
-    H --> I[Search Products]
-    H --> J[Check Orders]
+```text
+app/
+  (app)/                 Storefront, products, wishlist, checkout, and orders
+  (admin)/admin/         Dashboard, inventory, orders, and banners
+  api/                   Chat, admin insights, shipping, wishlist, and Stripe webhook
+  studio/                Embedded Sanity Studio route
+components/
+  app/                   Storefront, product, cart, chat, and delivery UI
+  admin/                 Admin dashboard and management components
+  providers/             Application and Sanity providers
+  ui/                    Shared UI primitives
+lib/
+  actions/               Checkout and customer server actions
+  ai/                    Shopping agent and tools
+  constants/             Store, filter, location, and order constants
+  sanity/queries/        GROQ queries for catalog, orders, and dashboard data
+  store/                 Zustand cart, wishlist, and chat state
+  hooks/                 Storefront hooks
+sanity/
+  schemaTypes/           Product, category, banner, order, customer, wishlist schemas
+  lib/                   Sanity client, live data, and image helpers
+scripts/                 Catalog preparation/import/verification and category seeding
+public/                   Static assets and category images
 ```
 
-### AI Assistant Architecture
+## Environment Variables
 
-```mermaid
-flowchart TD
-    A[User Message] --> B{Clerk Auth Check}
-    B --> C[AI Agent - Claude Sonnet]
-    C --> D{Tool Selection}
-    
-    D --> E[searchProducts]
-    D --> F[getMyOrders]
-    
-    E --> G[GROQ Query to Sanity]
-    G --> H[Product Results]
-    
-    F --> I{User Authenticated?}
-    I -->|Yes| J[Fetch User Orders]
-    I -->|No| K[Prompt to Sign In]
-    
-    H --> L[AI Response with Product Cards]
-    J --> L
+Create `.env.local` in the project root. Never commit it or put secret values in documentation. `.env.example` currently lists the four Shiprocket settings; the application also reads the variables below. Values shown here are placeholders, not real credentials.
+
+| Variable | Required when | Exposure |
+| --- | --- | --- |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Using Sanity-backed pages and Studio | Public configuration |
+| `NEXT_PUBLIC_SANITY_DATASET` | Using Sanity-backed pages and Studio | Public configuration |
+| `NEXT_PUBLIC_SANITY_API_VERSION` | Optional; defaults in `sanity/env.ts` | Public configuration |
+| `NEXT_PUBLIC_SANITY_ORG_ID` | Optional; enables Sanity CLI app organization configuration | Public configuration |
+| `SANITY_API_WRITE_TOKEN` | Wishlist writes, webhook mutations, and catalog scripts | **Server-only secret** |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk authentication | Public configuration |
+| `CLERK_SECRET_KEY` | Clerk server authentication | **Server-only secret** |
+| `STRIPE_SECRET_KEY` | Checkout session creation and webhook handling | **Server-only secret** |
+| `STRIPE_WEBHOOK_SECRET` | Verifying Stripe webhook signatures | **Server-only secret** |
+| `GROQ_API_KEY` | Customer AI chat and admin AI insights | **Server-only secret** |
+| `SHIPROCKET_EMAIL` | Delivery serviceability checks | **Server-only credential** |
+| `SHIPROCKET_PASSWORD` | Delivery serviceability checks | **Server-only credential** |
+| `SHIPROCKET_PICKUP_PINCODE` | Delivery serviceability checks | Server configuration; six-digit origin pincode |
+| `SHIPROCKET_SERVICEABILITY_WEIGHT_KG` | Delivery serviceability checks | Server configuration; representative weight in kg |
+| `NEXT_PUBLIC_BASE_URL` | Optional checkout URL override; otherwise Vercel URL or localhost is used | Public URL configuration |
+| `NEXT_PUBLIC_TRACK_ORDER_URL` | Optional external tracking link override | Public URL configuration |
+| `NEXT_PUBLIC_STORE_ADDRESS` | Optional store-location display | Public content configuration |
+| `NEXT_PUBLIC_STORE_DIRECTIONS_URL` | Optional store directions link | Public URL configuration |
+| `NEXT_PUBLIC_STORE_MAP_EMBED_URL` | Optional store map embed | Public URL configuration |
+| `STOREFRONT_URL` | Optional target used by the local storefront verification script | Public URL configuration |
+
+The `NEXT_PUBLIC_` prefix makes a value available to browser code. Never place credentials, API keys, or tokens in a `NEXT_PUBLIC_` variable. For example:
+
+```dotenv
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_WRITE_TOKEN=your_sanity_write_token
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+GROQ_API_KEY=your_groq_api_key
+SHIPROCKET_EMAIL=your_shiprocket_email
+SHIPROCKET_PASSWORD=your_shiprocket_password
+SHIPROCKET_PICKUP_PINCODE=your_six_digit_pickup_pincode
+SHIPROCKET_SERVICEABILITY_WEIGHT_KG=0.5
 ```
 
-### Real-time Data Flow
+## Local Development Setup
 
-```mermaid
-flowchart LR
-    subgraph Sanity Cloud
-        A[Sanity CMS]
-    end
-    
-    subgraph Next.js App
-        B[SanityLive Provider]
-        C[Server Components]
-        D[Sanity App SDK]
-        E[Admin Dashboard]
-    end
-    
-    A -->|Real-time sync| B
-    B --> C
-    C -->|Live UI updates| F[Customer View]
-    
-    D -->|Direct mutations| A
-    E --> D
-```
+1. Install a Node.js version compatible with Next.js 16 and install dependencies with `npm install`.
+2. Create `.env.local` with the variables required for the integrations you want to run. Sanity project ID and dataset are needed for Sanity content; Clerk, Stripe, Groq, and Shiprocket each need their corresponding configuration for those features.
+3. Configure Sanity project access, dataset, and CORS for your local origin. Create a write token for server-side mutations and scripts.
+4. Configure Clerk keys for the application. Use Stripe test credentials and configure a local webhook forwarder if testing completed orders.
+5. Start the application with `npm run dev` and open `http://localhost:3000`. Sanity Studio is at `/studio`.
 
----
+The category seeding script is available as `npm run sanity:seed-categories`. Other catalog preparation, import, and verification utilities are individual scripts in `scripts/`; they are not package scripts. Review each script and its prerequisites before running catalog writes.
 
-## 🚀 Getting Started
+## Running the Project
 
-### Prerequisites
+Commands below come from `package.json`:
 
-Before you begin, ensure you have:
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start Next.js development server with webpack |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run Biome checks |
+| `npm run format` | Format files with Biome (writes formatting changes) |
+| `npm run typecheck` | Run TypeScript without emitting files |
+| `npm run typegen` | Extract Sanity schema and generate required-field-aware types |
+| `npm run sanity:seed-categories` | Run the category seeding script |
 
-- **Node.js 18+** — [Download here](https://nodejs.org/)
-- **pnpm** — Install with `npm install -g pnpm`
-- **Sanity Account** — [Create free account](https://www.sanity.io/sonny?utm_source=youtube&utm_medium=video&utm_content=ai-ecommerce-platform)
-- **Clerk Account** — [Create free account](https://go.clerk.com/uc48FAP)
-- **Stripe Account** — [Create account](https://stripe.com/)
-- **Vercel Account** — For AI Gateway access
+For a production build, run `npm run build`, then `npm run start` in the configured deployment environment.
 
-### Step-by-Step Setup
+## Important API Routes
 
-#### 1. Clone the Repository
+| Route | Purpose |
+| --- | --- |
+| `POST /api/chat` | Stream the AI shopping assistant response |
+| `GET /api/admin/insights` | Generate dashboard insights from store data |
+| `GET /api/wishlist` | Load the signed-in user's wishlist |
+| `POST /api/wishlist` | Add a product to the signed-in user's wishlist |
+| `DELETE /api/wishlist` | Remove a product from the signed-in user's wishlist |
+| `POST /api/shipping/check-pincode` | Check Shiprocket serviceability and estimate |
+| `POST /api/webhooks/stripe` | Verify Stripe webhook and process completed checkout sessions |
 
-```bash
-git clone https://github.com/sonnysangha/ai-ecommerce-sanity-clerk.git
-cd ai-ecommerce-sanity-clerk
-```
+## Important Notes / Architecture
 
-#### 2. Install Dependencies
+- Sanity is the application content store; there is no separate application database in this project.
+- The browser cart is persisted locally. Wishlist and order records are persisted in Sanity.
+- Stripe is configured for card payments only. Payment processing and card data entry happen in Stripe Checkout.
+- Shiprocket credentials are used only in the server-side shipping helper. Rate limiting and delivery caching use process memory.
+- Admin document operations use Sanity SDK integrations. Configure Sanity project permissions for administrators; the admin route layout itself does not add a Clerk admin-role check.
+- Generated types are committed in `sanity.types.ts`; regenerate them after schema changes.
 
-```bash
-pnpm install
-```
+## Deployment
 
-#### 3. Set Up Environment Variables
+Deploy the Next.js application to a compatible Node.js hosting platform and configure the required environment variables in that platform's server environment. Also configure Sanity dataset access and allowed origins, Clerk production keys and application origins, Stripe production keys and a webhook endpoint at `/api/webhooks/stripe`, Groq access for AI features, and Shiprocket credentials/settings for delivery checks. Set `NEXT_PUBLIC_BASE_URL` when the checkout return URL needs an explicit canonical origin.
 
-```bash
-cp .env.example .env.local
-```
+## License
 
-Then fill in your values:
-
-```bash
-# Sanity
-NEXT_PUBLIC_SANITY_PROJECT_ID=Your_value_goes_here
-NEXT_PUBLIC_SANITY_DATASET=Your_value_goes_here
-NEXT_PUBLIC_SANITY_ORG_ID=Your_value_goes_here
-SANITY_API_WRITE_TOKEN=Your_value_goes_here
-
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=Your_value_goes_here
-CLERK_SECRET_KEY=Your_value_goes_here
-
-# Stripe
-STRIPE_SECRET_KEY=Your_value_goes_here
-# stripe listen --forward-to localhost:3000/api/webhooks/stripe
-STRIPE_WEBHOOK_SECRET=Your_value_goes_here
-
-# Vercel
-AI_GATEWAY_API_KEY=Your_value_goes_here
-```
-
-> ⚠️ **Security Note**: Never commit `.env.local` to git. The `.gitignore` already excludes it.
-
-> 💡 **Tip**: Variables starting with `NEXT_PUBLIC_` are exposed to the browser. Keep sensitive keys (like `CLERK_SECRET_KEY`) without this prefix.
-
-#### 4. Configure Sanity
-
-1. Go to [sanity.io/manage](https://www.sanity.io/manage)
-2. Create a new project or select existing
-3. Copy your **Project ID** and **Dataset** name
-4. Create an API token with **Editor** permissions for `SANITY_API_WRITE_TOKEN`
-
-#### 5. Configure Clerk
-
-1. Go to [dashboard.clerk.com](https://dashboard.clerk.com/)
-2. Create a new application
-3. Copy your **Publishable Key** and **Secret Key**
-
-#### 6. Configure Stripe
-
-1. Go to [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
-2. Copy your **Secret Key** (starts with `sk_test_` for development)
-3. For webhooks, run the Stripe CLI:
-
-```bash
-stripe listen --forward-to localhost:3000/api/webhooks/stripe
-```
-
-4. Copy the webhook signing secret it provides
-
-#### 7. Configure AI Gateway
-
-1. Go to [vercel.com](https://vercel.com/) and navigate to AI Gateway
-2. Create an API key
-3. The app uses Claude Sonnet 4/4.5 by default, but you can swap to other providers
-
-> 💡 **Swappable Models**: The AI Gateway supports OpenAI, Anthropic, Cohere, and more. Check `lib/ai/shopping-agent.ts` to change models.
-
-#### 8. Generate Types & Import Data
-
-```bash
-# Generate TypeScript types from Sanity schema
-pnpm typegen
-
-# Import sample product data
-npx sanity dataset import sample-data.ndjson
-
-# Add or update active clothing categories (safe to rerun; legacy categories are kept)
-npm run sanity:seed-categories
-```
-
-#### 9. Start Development Server
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) — you're ready to go! 🎉
-
-### First Time Setup Checklist
-
-- [ ] All environment variables filled in `.env.local`
-- [ ] Sanity project created with dataset
-- [ ] Clerk application created
-- [ ] Stripe CLI running for local webhooks
-- [ ] Sample data imported
-- [ ] Types generated with `pnpm typegen`
-
----
-
-## 📊 Database Schema Overview
-
-This app uses **Sanity** as its headless CMS with the following document types:
-
-### Product
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Product name |
-| `slug` | slug | URL-friendly identifier |
-| `description` | text | Product description |
-| `price` | number | Price in GBP |
-| `category` | reference | Link to category |
-| `material` | string | wood, metal, fabric, leather, glass |
-| `color` | string | black, white, oak, walnut, grey, natural |
-| `dimensions` | string | e.g., "120cm x 80cm x 75cm" |
-| `stock` | number | Current inventory count |
-| `images` | array | Product images with hotspot |
-| `featured` | boolean | Show in featured carousel |
-
-### Category
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `title` | string | Category name |
-| `slug` | slug | URL-friendly identifier |
-| `description` | text | Category description |
-| `image` | image | Category thumbnail |
-
-### Order
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `orderNumber` | string | Unique order ID (e.g., ORD-ABC123) |
-| `items` | array | Products with quantity and price at purchase |
-| `total` | number | Order total in GBP |
-| `status` | string | pending, paid, shipped, delivered, cancelled |
-| `customer` | reference | Link to customer record |
-| `clerkUserId` | string | Clerk user identifier |
-| `email` | string | Customer email |
-| `address` | object | Shipping address |
-| `stripePaymentId` | string | Stripe payment intent ID |
-
-### Customer
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `name` | string | Customer name |
-| `email` | string | Customer email |
-| `clerkUserId` | string | Clerk user identifier |
-| `stripeCustomerId` | string | Stripe customer ID |
-
----
-
-## 🔧 Key Technical Patterns
-
-### Sanity App SDK Patterns
-
-The admin dashboard uses Sanity App SDK for direct document operations:
-
-```typescript
-// app/(admin)/admin/page.tsx
-import {
-  useApplyDocumentActions,
-  createDocumentHandle,
-  createDocument,
-} from "@sanity/sdk-react";
-
-// Create a new product
-const apply = useApplyDocumentActions();
-
-const handleCreateProduct = async () => {
-  const newDocHandle = createDocumentHandle({
-    documentId: crypto.randomUUID(),
-    documentType: "product",
-  });
-  await apply(createDocument(newDocHandle));
-  router.push(`/admin/inventory/${newDocHandle.documentId}`);
-};
-```
-
-**Key hooks used:**
-- `useDocuments()` — Reactive document queries
-- `useApplyDocumentActions()` — Perform mutations (create, update, delete)
-- `createDocumentHandle()` — Create handles for new documents
-
-### Clerk AgentKit Pattern
-
-The AI assistant uses Clerk to provide user context:
-
-```typescript
-// lib/ai/shopping-agent.ts
-export function createShoppingAgent({ userId }: { userId: string | null }) {
-  const isAuthenticated = !!userId;
-
-  // Tools vary based on authentication
-  const tools: Record<string, Tool> = {
-    searchProducts: searchProductsTool, // Always available
-  };
-
-  // Only add orders tool if user is signed in
-  if (isAuthenticated) {
-    tools.getMyOrders = createGetMyOrdersTool(userId);
-  }
-
-  return new ToolLoopAgent({
-    model: gateway("anthropic/claude-sonnet-4.5"),
-    instructions: isAuthenticated ? fullInstructions : guestInstructions,
-    tools,
-  });
-}
-```
-
-**How it works:**
-1. Clerk provides `userId` from the session
-2. Agent is created with user-specific tools
-3. `getMyOrders` tool is scoped to that user's data
-
-### Custom AI Tools
-
-#### searchProducts Tool
-
-```typescript
-// lib/ai/tools/search-products.ts
-export const searchProductsTool = tool({
-  description: "Search for products in the furniture store",
-  inputSchema: z.object({
-    query: z.string().optional(),
-    category: z.string().optional(),
-    material: z.enum(["", "wood", "metal", "fabric", "leather", "glass"]),
-    color: z.enum(["", "black", "white", "oak", "walnut", "grey", "natural"]),
-    minPrice: z.number().optional(),
-    maxPrice: z.number().optional(),
-  }),
-  execute: async (params) => {
-    // Executes GROQ query against Sanity
-    const { data: products } = await sanityFetch({
-      query: AI_SEARCH_PRODUCTS_QUERY,
-      params,
-    });
-    return { products, found: products.length > 0 };
-  },
-});
-```
-
-#### getMyOrders Tool
-
-```typescript
-// lib/ai/tools/get-my-orders.ts
-export function createGetMyOrdersTool(userId: string | null) {
-  if (!userId) return null; // Not available for guests
-
-  return tool({
-    description: "Get the current user's orders",
-    inputSchema: z.object({
-      status: z.enum(["", "pending", "paid", "shipped", "delivered"]).optional(),
-    }),
-    execute: async ({ status }) => {
-      const { data: orders } = await sanityFetch({
-        query: ORDERS_BY_USER_QUERY,
-        params: { clerkUserId: userId },
-      });
-      return { orders, found: orders.length > 0 };
-    },
-  });
-}
-```
-
----
-
-## 🚢 Deployment
-
-### Deploy to Vercel
-
-#### Option 1: Vercel CLI
-
-```bash
-# Install Vercel CLI
-pnpm install -g vercel
-
-# Deploy
-vercel
-```
-
-#### Option 2: GitHub Integration
-
-1. Push your code to GitHub
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import your repository
-4. Add environment variables
-5. Deploy!
-
-### Post-Deployment Checklist
-
-- [ ] All environment variables set in Vercel dashboard
-- [ ] Update Stripe webhook URL to production: `https://yourdomain.com/api/webhooks/stripe`
-- [ ] Add production domain to Clerk allowed origins
-- [ ] Add production domain to Sanity CORS origins
-- [ ] Test a complete purchase flow
-
-### Monitoring
-
-- **Vercel Analytics** — Performance and usage metrics
-- **Sanity Studio** — Content management at `/studio`
-- **Stripe Dashboard** — Payment monitoring
-- **Clerk Dashboard** — User analytics
-
----
-
-## 🐛 Common Issues & Solutions
-
-### Sanity Issues
-
-| Problem | Solution |
-|---------|----------|
-| "Missing write token" error | Ensure `SANITY_API_WRITE_TOKEN` is set with Editor permissions |
-| CORS errors | Add your domain to Sanity project CORS origins |
-| Types out of sync | Run `pnpm typegen` after schema changes |
-
-### Clerk Issues
-
-| Problem | Solution |
-|---------|----------|
-| Middleware not working | Check `middleware.ts` matches Clerk docs |
-| User not found in session | Ensure `ClerkProvider` wraps your app |
-| AgentKit not getting userId | Verify `auth()` is called server-side |
-
-### Stripe Issues
-
-| Problem | Solution |
-|---------|----------|
-| Webhook signature failed | Ensure `STRIPE_WEBHOOK_SECRET` matches CLI output |
-| Payment succeeded but no order | Check webhook endpoint and Sanity write permissions |
-| "API key invalid" | Use test keys (`sk_test_`) for development |
-
-### AI Issues
-
-| Problem | Solution |
-|---------|----------|
-| "Gateway error" | Verify `AI_GATEWAY_API_KEY` is valid |
-| Rate limiting | Implement request throttling or upgrade plan |
-| Wrong model response | Check model name in `shopping-agent.ts` |
-
----
-
-## 🏆 Take It Further - Challenge Time!
-
-Ready to level up? Try adding these features:
-
-### Beginner Challenges
-
-- [ ] Add product reviews with star ratings
-- [ ] Implement a wishlist/favorites feature
-- [ ] Add social sharing buttons
-
-### Intermediate Challenges
-
-- [ ] Email notifications via [Resend](https://resend.com/)
-- [ ] Product comparison feature
-- [ ] Advanced filtering (multiple selections)
-
-### Advanced Challenges
-
-- [ ] AI-powered product recommendations ("You might also like...")
-- [ ] Sentiment analysis for reviews
-- [ ] Multi-currency support with automatic conversion
-- [ ] Inventory forecasting with AI
-
-### Infrastructure Challenges
-
-- [ ] Add Redis caching for frequently accessed products
-- [ ] Implement image optimization with Cloudinary
-- [ ] Add full-text search with Algolia
-
----
-
-## 📄 License
-
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
-
-### ✅ You CAN
-
-- Use this code for personal learning
-- Modify and adapt the code
-- Share with attribution
-- Use in portfolio projects
-
-### ❌ You CANNOT
-
-- Use for commercial purposes without permission
-- Sell this code or derivatives
-- Remove attribution
-
-### 💼 Commercial Licensing
-
-Want to use this for a commercial project? Contact us:
-
-📧 **contact@papareact.com**
-
-See [LICENSE.md](./LICENSE.md) for full details.
-
----
-
-## 📚 Quick Reference
-
-### Useful Commands
-
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server |
-| `pnpm build` | Build for production |
-| `pnpm start` | Start production server |
-| `pnpm typegen` | Generate TypeScript types from Sanity schema |
-| `pnpm lint` | Run Biome linter |
-| `pnpm format` | Format code with Biome |
-| `pnpm typecheck` | Run TypeScript type checking |
-
-### Key Files & Folders
-
-```
-├── app/
-│   ├── (app)/              # Customer-facing routes
-│   ├── (admin)/admin/      # Admin dashboard
-│   ├── api/
-│   │   ├── chat/           # AI chat endpoint
-│   │   └── webhooks/stripe # Stripe webhook handler
-│   └── studio/             # Embedded Sanity Studio
-├── components/
-│   ├── app/                # Customer UI components
-│   ├── admin/              # Admin UI components
-│   └── ui/                 # Shadcn/UI components
-├── lib/
-│   ├── ai/                 # AI agent & tools
-│   ├── sanity/queries/     # GROQ queries
-│   └── store/              # Zustand stores
-├── sanity/
-│   ├── schemaTypes/        # Sanity document schemas
-│   └── lib/                # Sanity client & utilities
-└── .env.example            # Environment template
-```
-
-### Important Concepts
-
-| Concept | File(s) | What It Does |
-|---------|---------|--------------|
-| Shopping Agent | `lib/ai/shopping-agent.ts` | Configures AI with tools and instructions |
-| Search Tool | `lib/ai/tools/search-products.ts` | AI tool for product search |
-| Orders Tool | `lib/ai/tools/get-my-orders.ts` | AI tool for user's order history |
-| Real-time Data | `sanity/lib/live.ts` | Sanity Live configuration |
-| Cart Store | `lib/store/cart-store.ts` | Zustand cart with persistence |
-| Admin Actions | `app/(admin)/admin/page.tsx` | Sanity App SDK document operations |
-
----
-
-<div align="center">
-
-**Built with ❤️ by [Sonny Sangha](https://www.papareact.com/) & the PAPAFAM Community**
-
-[YouTube](https://www.youtube.com/@SonnySangha) · [Twitter](https://twitter.com/sonnysangha) · [Course](https://www.papareact.com/course)
-
-</div>
+See [LICENSE.md](./LICENSE.md) for the license terms.
