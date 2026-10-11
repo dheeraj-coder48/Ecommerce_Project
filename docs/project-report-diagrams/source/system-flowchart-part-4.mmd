@@ -1,0 +1,18 @@
+flowchart TD
+  Start((Admin workflow)) --> Auth{Clerk session and admin role?}
+  Auth -- No --> Deny[Protected sign-in or 403]
+  Auth -- Yes --> Manage[Manage products, inventory or banners]
+  Manage --> Validate[Validate allowed fields and values]
+  Validate --> Draft[Create or patch Sanity draft]
+  Draft --> Publish{Publish draft?}
+  Publish -- No --> DraftEnd[Keep or discard draft]
+  Publish -- Yes --> Public[Replace published document; remove draft]
+  Public --> Revalidate[Revalidate storefront paths]
+  Auth -- Yes --> Status[Request allowed fulfillment status change]
+  Status --> Check[Check paid order and valid transition]
+  Check --> Transaction[Atomically update order and record notification]
+  Transaction --> Email[Attempt SMTP status email]
+  Email --> Outcome{Delivery outcome?}
+  Outcome -- Sent --> Sent[Record sent]
+  Outcome -- Failed --> Retry[Record failed; admin can retry]
+  Outcome -- Unknown --> Review[Record unknown; require review]

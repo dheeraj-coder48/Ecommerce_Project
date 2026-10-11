@@ -1,0 +1,26 @@
+classDiagram
+  direction LR
+  class Product["Sanity product document"] {
+    _id
+    name
+    slug
+    description
+    price INR
+    stock integer
+    gender
+    fabric
+    colors[]
+    size[]
+    fit
+    pattern
+    featured
+  }
+  class Category["Sanity category document"] { _id title slug departments[] }
+  class Banner["Sanity banner document"] { _id title ctaText active displayOrder destinationType customUrl }
+  class SanityImage["Sanity image asset"] { _id url }
+  Category "1" <-- "0..*" Product : category reference
+  Banner "0..*" --> "0..1" Category : optional category target
+  Banner "0..*" --> "0..1" Product : optional product target
+  Product "0..*" --> "0..*" SanityImage : image asset references
+  Category "0..*" --> "0..1" SanityImage : optional image
+  Banner "0..*" --> "1" SanityImage : required banner image

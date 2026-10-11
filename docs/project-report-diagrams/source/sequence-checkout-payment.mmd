@@ -1,0 +1,58 @@
+﻿sequenceDiagram
+  actor Customer
+  participant UI as Checkout UI
+  participant Clerk
+  participant Action as createCheckoutSession
+  participant Sanity
+  participant Stripe
+  participant Hook as Stripe webhook
+  participant Email as SMTP / email module
+  Customer->>UI: Submit cart
+  UI->>Action: Cart product IDs, quantities, options
+  Action->>Clerk: auth() and currentUser()
+  alt Not signed in or cart empty
+    Action-->>UI: Return validation error
+  else Signed in
+    Action->>Sanity: Fetch products by IDs
+    Sanity-->>Action: Current price, stock, colors, sizes
+    Action->>Action: Validate quantities, options, stock
+    alt Invalid cart
+      Action-->>UI: Return item errors
+    else Valid cart
+      Action->>Stripe: Create Checkout Session using server prices
+      Stripe-->>Action: Session URL
+      Action-->>UI: Redirect URL
+      UI->>Stripe: Customer completes hosted payment
+      Stripe-->>UI: Return to success or checkout cancel URL
+      Stripe->>Hook: checkout.session.completed / async_payment_succeeded
+      Hook->>Hook: Verify stripe-signature
+      alt Invalid signature
+        Hook-->>Stripe: HTTP 400
+      else Valid signature
+        Hook->>Hook: Require paid session and payment intent
+        Hook->>Sanity: Find order by stripePaymentId
+        alt Existing order
+          Sanity-->>Hook: Existing order
+        else No existing order
+          Hook->>Stripe: Fetch checkout session line items
+          Stripe-->>Hook: Product metadata and amounts
+          Hook->>Hook: Validate required metadata and phone
+          Hook->>Sanity: Create order document
+          Hook->>Sanity: Transactionally decrement product stock
+        end
+        Hook->>Sanity: Claim email delivery marker
+        Hook->>Email: Send confirmation
+        alt Email sent
+          Email-->>Hook: Accepted, mark sent
+          Hook-->>Stripe: HTTP 200
+        else Processing or delivery failure
+          Hook-->>Stripe: HTTP 500 for retryable processing error
+        end
+      end
+      UI->>Action: Retrieve session for success display
+      Action->>Clerk: Verify signed-in user
+      Action->>Stripe: Retrieve session
+      Action->>Action: Confirm session metadata belongs to user
+      Action-->>UI: Return session details or access error
+    end
+  end

@@ -1,0 +1,27 @@
+usecase-beta
+direction LR
+actor Admin
+actor Clerk
+actor Sanity
+actor SMTP
+actor Groq
+systemBoundary KC["Kumar Collection Ecommerce System"]
+  UC10("UC-10 Manage products and inventory")
+  UC11("UC-11 Manage banners")
+  UC12("UC-12 Manage orders and fulfillment")
+  UC13("UC-13 View dashboard insights")
+end
+Admin --> UC10
+Admin --> UC11
+Admin --> UC12
+Admin --> UC13
+UC10 --> Clerk
+UC10 --> Sanity
+UC11 --> Clerk
+UC11 --> Sanity
+UC12 --> Clerk
+UC12 --> Sanity
+UC12 --> SMTP
+UC13 --> Clerk
+UC13 --> Sanity
+UC13 --> Groq

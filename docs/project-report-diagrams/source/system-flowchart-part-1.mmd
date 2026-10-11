@@ -1,0 +1,17 @@
+flowchart TD
+  Start((Start)) --> Browse[Browse or search published catalog]
+  Browse --> Detail[View product and choose available options]
+  Detail --> Cart[Add to browser-persisted cart]
+  Cart --> Signed{Signed in?}
+  Signed -- No --> SignIn[Clerk sign-in]
+  SignIn --> Checkout[Submit checkout]
+  Signed -- Yes --> Checkout
+  Checkout --> Fetch[Fetch current Sanity product data]
+  Fetch --> Valid{Price, stock, quantity and options valid?}
+  Valid -- No --> Fix[Show validation error; update cart]
+  Fix --> Cart
+  Valid -- Yes --> Session[Create Stripe Checkout Session]
+  Session --> Created{Session created?}
+  Created -- No --> Retry[Show error; allow checkout retry]
+  Retry --> Checkout
+  Created -- Yes --> Next((Continue to Part 2))

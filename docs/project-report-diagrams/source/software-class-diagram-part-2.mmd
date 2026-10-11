@@ -1,0 +1,34 @@
+classDiagram
+  direction LR
+  class AdminPages["app/(admin)/admin"]
+  class AdminUI["components/admin"]
+  class AdminContentAPI["/api/admin/content"]
+  class FulfillmentAPI["fulfillment-status route"]
+  class NotificationAction["deliverOrderStatusNotification"]
+  class AdminAuth["lib/auth/admin requireAdmin"]
+  class AdminSanity["lib/sanity/admin-client"]
+  class Schemas["sanity/schemaTypes"]
+  class ChatAPI["/api/chat"]
+  class Agent["lib/ai/shopping-agent"]
+  class SearchTool["search-products tool"]
+  class OrderTool["get-my-orders tool"]
+  class PincodeAPI["/api/shipping/check-pincode"]
+  class Shiprocket["lib/shiprocket"]
+  class SanityQueries["lib/sanity/queries"]
+  class EmailModule["lib/email/order-confirmation"]
+  AdminPages --> AdminUI
+  AdminUI --> AdminContentAPI
+  AdminUI --> FulfillmentAPI
+  AdminContentAPI --> AdminAuth
+  AdminContentAPI --> AdminSanity
+  AdminContentAPI --> Schemas
+  FulfillmentAPI --> AdminAuth
+  FulfillmentAPI --> NotificationAction
+  NotificationAction --> AdminSanity
+  NotificationAction --> EmailModule
+  ChatAPI --> Agent
+  Agent --> SearchTool
+  Agent --> OrderTool
+  SearchTool --> SanityQueries
+  OrderTool --> SanityQueries
+  PincodeAPI --> Shiprocket

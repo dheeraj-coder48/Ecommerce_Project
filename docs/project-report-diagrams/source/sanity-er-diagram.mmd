@@ -1,0 +1,50 @@
+erDiagram
+  direction LR
+  CUSTOMER {
+    string _id
+    string email
+    string name
+    string clerkUserId
+    string stripeCustomerId
+  }
+  ORDER {
+    string _id
+    string orderNumber
+    number total
+    string paymentStatus
+    string fulfillmentStatus
+    string stripePaymentId
+    array items_embedded
+    object address_embedded
+    reference customer_optional
+  }
+  PRODUCT {
+    string _id
+    string name
+    number price
+    number stock
+  }
+  WISHLIST {
+    string _id
+    string clerkUserId
+    array product_references
+  }
+  ORDER_STATUS_NOTIFICATION {
+    string _id
+    reference order
+    string fromStatus
+    string toStatus
+    string deliveryStatus
+    number attemptCount
+  }
+  EMAIL_DELIVERY {
+    string _id
+    string purpose
+    string orderId
+    string status
+    datetime claimedAt
+  }
+  CUSTOMER o|--o{ ORDER : optional customer reference
+  ORDER ||--o{ ORDER_STATUS_NOTIFICATION : notification history
+  PRODUCT }o--o{ WISHLIST : item references
+  PRODUCT }o--o{ ORDER : embedded item reference

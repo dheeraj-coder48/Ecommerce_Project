@@ -1,0 +1,15 @@
+flowchart TD
+  Start((Continue from Part 1)) --> Hosted[Customer pays on Stripe hosted page]
+  Hosted --> Paid{Stripe event reports paid?}
+  Paid -- No --> Cancel[Return to checkout; no order created]
+  Cancel --> EndNo((End: no order))
+  Paid -- Yes --> Hook[Webhook verifies Stripe signature]
+  Hook --> Signature{Signature valid?}
+  Signature -- No --> Reject[Reject webhook with HTTP 400]
+  Signature -- Yes --> Duplicate{Payment already has an order?}
+  Duplicate -- Yes --> Existing[Reuse existing order]
+  Duplicate -- No --> Create[Create Sanity order]
+  Create --> Stock[Decrement stock in Sanity transaction]
+  Stock --> Email[Claim and send confirmation email]
+  Existing --> Email
+  Email --> EndOrder((Order recorded; continue to Part 3))

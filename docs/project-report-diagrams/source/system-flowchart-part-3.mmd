@@ -1,0 +1,15 @@
+flowchart TD
+  Start((Continue from Part 2)) --> Success[Success page retrieves Stripe session]
+  Success --> Own{Session belongs to signed-in user?}
+  Own -- No --> Access[Show access error]
+  Own -- Yes --> Orders[Customer views own Sanity orders]
+  Orders --> Status[View fulfillment status]
+  Orders -. optional .-> AI[Groq assistant searches Sanity products]
+  AI --> AuthOrder{Signed-in order lookup?}
+  AuthOrder -- Yes --> MyOrders[AI order tool reads that user's orders]
+  AuthOrder -- No --> ProductHelp[AI product discovery only]
+  Orders -. optional .-> Pin[Check six-digit pincode]
+  Pin --> Limit{Within in-memory rate limit?}
+  Limit -- No --> Throttle[Return rate-limit response]
+  Limit -- Yes --> Shiprocket[Call Shiprocket serviceability]
+  Shiprocket --> Availability[Show availability and ETA when supplied]

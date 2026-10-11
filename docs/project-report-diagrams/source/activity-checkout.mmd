@@ -1,0 +1,17 @@
+flowchart TD
+  Start((● Start)) --> Browse([Browse / search catalog])
+  Browse --> Details([View product and select options])
+  Details --> Add([Add item to browser cart])
+  Add --> Sign{Authenticated?}
+  Sign -- No --> Login([Sign in through Clerk])
+  Login --> Submit([Submit checkout request])
+  Sign -- Yes --> Submit
+  Submit --> Read([Read current product data from Sanity])
+  Read --> Valid{Cart valid: stock and options?}
+  Valid -- No --> Error([Return validation error])
+  Error --> Add
+  Valid -- Yes --> Create([Create Stripe Checkout Session])
+  Create --> Created{Session created?}
+  Created -- No --> TryAgain([Show error and allow retry])
+  TryAgain --> Submit
+  Created -- Yes --> Continue((Continue to Part 2))

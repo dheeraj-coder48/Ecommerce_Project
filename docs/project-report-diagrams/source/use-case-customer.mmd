@@ -1,0 +1,44 @@
+usecase-beta
+direction LR
+actor Guest
+actor Customer
+actor Clerk
+actor Sanity
+actor Stripe
+actor Shiprocket
+actor Groq
+systemBoundary KC["Kumar Collection Ecommerce System"]
+  UC01("UC-01 Browse and search catalog")
+  UC02("UC-02 View product details")
+  UC03("UC-03 Manage browser cart")
+  UC04("UC-04 Sign in")
+  UC05("UC-05 Manage wishlist")
+  UC06("UC-06 Checkout and pay")
+  UC07("UC-07 View orders")
+  UC08("UC-08 Check delivery by pincode")
+  UC09("UC-09 Use AI shopping assistant")
+end
+Guest --> UC01
+Customer --> UC01
+Guest --> UC02
+Customer --> UC02
+Guest --> UC03
+Customer --> UC03
+Customer --> UC04
+Customer --> UC05
+Customer --> UC06
+Customer --> UC07
+Guest --> UC08
+Customer --> UC08
+Guest --> UC09
+Customer --> UC09
+UC01 --> Sanity
+UC02 --> Sanity
+UC05 --> Sanity
+UC06 --> Clerk
+UC06 --> Sanity
+UC06 --> Stripe
+UC07 --> Sanity
+UC08 --> Shiprocket
+UC09 --> Groq
+UC09 --> Sanity

@@ -1,0 +1,25 @@
+classDiagram
+  direction LR
+  class StorefrontPages["app/(app) pages"]
+  class ProductUI["ProductGrid / ProductInfo / ProductFilters"]
+  class CartUI["CartSheet / CartSummary"]
+  class CartStore["lib/store/cart-store"]
+  class WishlistAPI["/api/wishlist"]
+  class CheckoutUI["CheckoutClient"]
+  class CheckoutAction["createCheckoutSession"]
+  class CustomerAction["getOrCreateStripeCustomer"]
+  class ProductQueries["lib/sanity/queries/products"]
+  class SanityClient["sanity/lib/client"]
+  class StripeWebhook["/api/webhooks/stripe"]
+  class EmailModule["lib/email/order-confirmation"]
+  StorefrontPages --> ProductUI
+  ProductUI --> ProductQueries
+  StorefrontPages --> CartUI
+  CartUI --> CartStore
+  StorefrontPages --> WishlistAPI
+  CheckoutUI --> CheckoutAction
+  CheckoutAction --> CustomerAction
+  CheckoutAction --> ProductQueries
+  CheckoutAction --> StripeWebhook : async Stripe callback path
+  StripeWebhook --> SanityClient
+  StripeWebhook --> EmailModule

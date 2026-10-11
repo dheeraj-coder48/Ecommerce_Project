@@ -1,0 +1,13 @@
+flowchart TD
+  Continue((Continue from Part 1)) --> Pay([Customer pays on Stripe hosted page])
+  Pay --> Hook([Stripe sends signed completion event])
+  Hook --> Verified{Signature valid and session paid?}
+  Verified -- No --> NoOrder([Reject or skip order creation])
+  NoOrder --> EndNo((◎ End: no order))
+  Verified -- Yes --> Duplicate{Order exists for payment intent?}
+  Duplicate -- Yes --> Existing([Use existing order])
+  Duplicate -- No --> Persist([Create Sanity order])
+  Persist --> Stock([Decrement stock in transaction])
+  Stock --> Notify([Claim and send confirmation email])
+  Existing --> Notify
+  Notify --> EndYes((◎ End: order recorded))

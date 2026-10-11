@@ -1,0 +1,24 @@
+﻿flowchart LR
+  Browser[Customer / admin browser]
+  subgraph Hosting["Vercel deployment target"]
+    Next[Next.js pages and React UI]
+    Server[Server actions and API routes]
+    Middleware[Clerk middleware / proxy]
+  end
+  Clerk[Clerk identity service]
+  Sanity[(Sanity Content Lake and image CDN)]
+  Stripe[Stripe Checkout and API]
+  Groq[Groq API]
+  Shiprocket[Shiprocket API]
+  SMTP[Configured SMTP provider]
+  Browser -->|HTTPS pages and requests| Next
+  Next --> Server
+  Browser -->|Session-protected requests| Middleware
+  Middleware <-->|HTTPS session verification| Clerk
+  Server <-->|HTTPS published reads and scoped writes| Sanity
+  Browser -->|HTTPS image delivery| Sanity
+  Server -->|HTTPS session creation / retrieval| Stripe
+  Stripe -->|Signed HTTPS webhook| Server
+  Server -->|HTTPS model requests| Groq
+  Server -->|HTTPS authentication and serviceability| Shiprocket
+  Server -->|SMTP order email| SMTP

@@ -1,0 +1,41 @@
+erDiagram
+  direction LR
+  CATEGORY {
+    string _id
+    string title
+    slug slug
+    array departments
+    image image_embedded
+  }
+  PRODUCT {
+    string _id
+    string name
+    slug slug
+    number price
+    number stock
+    array colors
+    array size
+    reference category
+    array images_embedded
+  }
+  BANNER {
+    string _id
+    string title
+    string ctaText
+    boolean active
+    number displayOrder
+    string destinationType
+    reference category_optional
+    reference product_optional
+    image image_embedded
+  }
+  SANITY_IMAGE_ASSET {
+    string _id
+    string url
+  }
+  CATEGORY ||--o{ PRODUCT : category reference
+  CATEGORY o|--o{ BANNER : optional target
+  PRODUCT o|--o{ BANNER : optional target
+  SANITY_IMAGE_ASSET ||--o{ PRODUCT : image asset reference
+  SANITY_IMAGE_ASSET o|--o{ CATEGORY : optional image reference
+  SANITY_IMAGE_ASSET ||--o{ BANNER : required image reference

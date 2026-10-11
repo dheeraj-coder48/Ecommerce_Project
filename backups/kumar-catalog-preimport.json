@@ -1,0 +1,1616 @@
+{
+  "capturedAt": "2026-10-06T16:42:27.800Z",
+  "projectId": "4hr9bepj",
+  "dataset": "production",
+  "scope": "all current product and category documents; no customer or order data",
+  "documents": [
+    {
+      "_createdAt": "2026-09-29T16:47:30Z",
+      "_id": "0bde870b-5fad-4e47-8730-c23346c11503",
+      "_rev": "f193fdb6-5235-4dde-a4f0-b884bed3aedd",
+      "_system": {
+        "base": {
+          "id": "0bde870b-5fad-4e47-8730-c23346c11503",
+          "rev": "05d4f964-dfb9-4efb-886d-69f1270e6de0"
+        }
+      },
+      "_type": "product",
+      "_updatedAt": "2026-09-29T17:11:57Z",
+      "category": {
+        "_ref": "Ztihj8evCSR8pf2MDNW76P",
+        "_type": "reference"
+      },
+      "colors": [
+        "black",
+        "navy",
+        "pink",
+        "white",
+        "green",
+        "grey",
+        "olive",
+        "burgundy"
+      ],
+      "description": "nk;ldfvnk;lgvnds;lkgvdsf;em;l vndlvedgvesvg",
+      "fabric": "nylon",
+      "featured": true,
+      "fit": "relaxed",
+      "gender": "men",
+      "images": [
+        {
+          "_key": "0c7d9455-41c4-4617-a7f3-97b612f862e0",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-dfa6188112bb01f05f3b071b36ec8fa1f16f080e-740x394-avif",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "hoga hoga",
+      "price": 5400,
+      "size": [
+        "XXL",
+        "XS",
+        "L",
+        "M"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "fnhkelfnaeklfgnkl"
+      },
+      "stock": 50
+    },
+    {
+      "_createdAt": "2026-10-03T13:18:14Z",
+      "_id": "4a76a2c0-966d-4820-b6a0-9f36b1eb981e",
+      "_rev": "Bxu4sUfbdIQuHm8e7Crb4b",
+      "_system": {
+        "base": {
+          "id": "4a76a2c0-966d-4820-b6a0-9f36b1eb981e",
+          "rev": "fdd57323-3854-43d7-b5a9-c821fb0ad11b"
+        }
+      },
+      "_type": "product",
+      "_updatedAt": "2026-10-03T13:24:46Z",
+      "category": {
+        "_ref": "MkqYT7UWd5XmsayfLV9GQU",
+        "_type": "reference"
+      },
+      "colors": [
+        "white",
+        "burgundy",
+        "red",
+        "pink"
+      ],
+      "description": "Step into effortless elegance with our white and red schiffli straight suit set, a perfect blend of simplicity and sophistication for the summer season. This charming ensemble features a straight kurta, a solid palazzo, and a matching dupatta, making it an ideal choice for casual outings and everyday wear.\n\n\nKurta Details:\n\nIntricate ethnic schiffli design with a mesmerizing motif pattern that adds depth and allure\nClassic v-neckline paired with graceful 3/4 sleeves for a timeless, refined appeal\nKnee-length kurta with an asymmetric hem, creating a sleek and flattering silhouette\nBottom Details:\n\nSolid palazzo with delicate border detailing at the hem, bringing a touch of understated elegance\nElasticated waistband for effortless comfort and a flattering fit\nDupatta Details:\n\nSolid dupatta with a curved border that adds a hint of flair and sophistication",
+      "fabric": "cotton",
+      "fit": "regular",
+      "gender": "men",
+      "images": [
+        {
+          "_key": "70b47400-3dc5-4a61-94b4-3cb9adb9b359",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-8809e465f52889c9b6bee7f2d74774aaadbe5428-900x1350-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "002f1e69-66cc-4f9f-9c4b-df6188d544bd",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-d1d6099fe7c01d261c614213cd23848e462e096a-900x1350-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "aef7c4a4-5906-41c8-a050-60b5b173eb77",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-640a12db91f90438f2f271c87b613f029be1cb47-900x1350-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "2fb43007-dda7-426b-b725-e05d45b373f0",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-bfb59bb12256dc5db21bd09e3d9accc58e4124ea-900x1350-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "White and Red Cotton Asymmetric Suit Set",
+      "pattern": "checked",
+      "price": 500,
+      "size": [
+        "M",
+        "L",
+        "XL",
+        "S"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "white-and-red-cotton-asymmetric-suit-set"
+      },
+      "stock": 80
+    },
+    {
+      "_createdAt": "2026-09-29T13:36:47Z",
+      "_id": "4d79dca0-119d-4e36-bb7c-bd45fe09dcf2",
+      "_rev": "MkqYT7UWd5XmsayfLTlxpz",
+      "_system": {
+        "base": {
+          "id": "4d79dca0-119d-4e36-bb7c-bd45fe09dcf2",
+          "rev": "8d53fce7-7c36-49fa-b506-fc2b20bf8428"
+        }
+      },
+      "_type": "product",
+      "_updatedAt": "2026-09-29T13:46:11Z",
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "colors": [
+        "black",
+        "white",
+        "navy",
+        "grey"
+      ],
+      "description": "Kya bolte company nusta paisa nusta paisa bajne de dhadak dhadak dhol taash tadak tadak malhaari hi i am a good boy belive me cxox i am tellingyou this no anyone else",
+      "fabric": "linen",
+      "featured": true,
+      "fit": "regular",
+      "gender": "men",
+      "images": [
+        {
+          "_key": "ff94ff7c-83d9-4500-83d8-f8490161c281",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-12b119c6c7763c04dc8f5ef819dfb92dca293e03-110x110-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "Dheeraj Ka Kacha",
+      "pattern": "striped",
+      "price": 500,
+      "size": [
+        "XS",
+        "S",
+        "L",
+        "M"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "dheeraj-ka-kacha"
+      },
+      "stock": 199
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:18Z",
+      "_id": "50OHrSbUUGg4GgXR4qj2OL",
+      "_rev": "YQTcGaQ1phjFRPeNlcGApn",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:44Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "shirts"
+      },
+      "title": "Shirts"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:23Z",
+      "_id": "50OHrSbUUGg4GgXR4qj4D8",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiCAE",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:48Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "pants"
+      },
+      "title": "Pants"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:26Z",
+      "_id": "50OHrSbUUGg4GgXR4qj55R",
+      "_rev": "YQTcGaQ1phjFRPeNlcGB5f",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:51Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "shorts"
+      },
+      "title": "Shorts"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:30Z",
+      "_id": "50OHrSbUUGg4GgXR4qj6VA",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiCjV",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:53Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "sweatshirts"
+      },
+      "title": "Sweatshirts"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:32Z",
+      "_id": "50OHrSbUUGg4GgXR4qj6yP",
+      "_rev": "YQTcGaQ1phjFRPeNlcGBKD",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:55Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "jackets"
+      },
+      "title": "Jackets"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:41Z",
+      "_id": "50OHrSbUUGg4GgXR4qjCu1",
+      "_rev": "50OHrSbUUGg4GgXR4qjCpq",
+      "_type": "category",
+      "_updatedAt": "2026-09-29T17:05:41Z",
+      "departments": [
+        "women"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "skirts"
+      },
+      "title": "Skirts"
+    },
+    {
+      "_createdAt": "2026-09-20T17:50:50Z",
+      "_id": "9a6875ee-f971-431b-a114-12ba387aab38",
+      "_rev": "MkqYT7UWd5XmsayfLTepF5",
+      "_system": {
+        "base": {
+          "id": "9a6875ee-f971-431b-a114-12ba387aab38",
+          "rev": "8f25433c-bc4d-448c-bfbf-06f2f3721dbe"
+        }
+      },
+      "_type": "product",
+      "_updatedAt": "2026-09-29T13:35:10Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "color": "natural",
+      "description": "Kya bolte company",
+      "dimensions": "120x80x75",
+      "featured": true,
+      "images": [
+        {
+          "_key": "794bf478-55dc-4457-9ca0-2475f39b151f",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-ed641ccdf60a840d5ee6dda50220d345bff7e1ca-1920x1080-png",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "leather",
+      "name": "Dheeraj",
+      "price": 5.99,
+      "slug": {
+        "_type": "slug",
+        "current": "dheeraj"
+      },
+      "stock": 4
+    },
+    {
+      "_createdAt": "2026-10-03T12:55:01Z",
+      "_id": "Bxu4sUfbdIQuHm8e7CiDkD",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiDgI",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:55:01Z",
+      "departments": [
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "kids-ethnic-wear"
+      },
+      "title": "Kids Ethnic Wear"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:20Z",
+      "_id": "MkqYT7UWd5XmsayfLV9Bzb",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiBmi",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:45Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "jeans"
+      },
+      "title": "Jeans"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:21Z",
+      "_id": "MkqYT7UWd5XmsayfLV9ChQ",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiByT",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:47Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "trousers"
+      },
+      "title": "Trousers"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:28Z",
+      "_id": "MkqYT7UWd5XmsayfLV9E74",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiCXk",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:52Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "hoodies"
+      },
+      "title": "Hoodies"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:33Z",
+      "_id": "MkqYT7UWd5XmsayfLV9GQU",
+      "_rev": "ifwPoTDmnn7bQil0bZs4HS",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:56Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "ethnic-wear"
+      },
+      "title": "Ethnic Wear"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:40Z",
+      "_id": "MkqYT7UWd5XmsayfLV9J3p",
+      "_rev": "MkqYT7UWd5XmsayfLV9Izq",
+      "_type": "category",
+      "_updatedAt": "2026-09-29T17:05:40Z",
+      "departments": [
+        "women"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "dresses"
+      },
+      "title": "Dresses"
+    },
+    {
+      "_createdAt": "2026-10-03T12:55:02Z",
+      "_id": "YQTcGaQ1phjFRPeNlcGCJ3",
+      "_rev": "YQTcGaQ1phjFRPeNlcGCHj",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:55:02Z",
+      "departments": [
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "kids-party-wear"
+      },
+      "title": "Kids Party Wear"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:16Z",
+      "_id": "Ztihj8evCSR8pf2MDNVyUz",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiBX2",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:42Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "t-shirts"
+      },
+      "title": "T-Shirts"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:25Z",
+      "_id": "Ztihj8evCSR8pf2MDNVzZf",
+      "_rev": "ifwPoTDmnn7bQil0bZs44m",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:49Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "track-pants"
+      },
+      "title": "Track Pants"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:35Z",
+      "_id": "Ztihj8evCSR8pf2MDNW6Bz",
+      "_rev": "Bxu4sUfbdIQuHm8e7CiD71",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:56Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "activewear"
+      },
+      "title": "Activewear"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:36Z",
+      "_id": "Ztihj8evCSR8pf2MDNW76P",
+      "_rev": "ifwPoTDmnn7bQil0bZs4Pu",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:58Z",
+      "departments": [
+        "men",
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "accessories"
+      },
+      "title": "Accessories"
+    },
+    {
+      "_createdAt": "2026-09-29T17:05:38Z",
+      "_id": "Ztihj8evCSR8pf2MDNW80p",
+      "_rev": "Ztihj8evCSR8pf2MDNW7vh",
+      "_type": "category",
+      "_updatedAt": "2026-09-29T17:05:38Z",
+      "departments": [
+        "women"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "tops"
+      },
+      "title": "Tops"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-beds",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-3c36d1b2a5e79897d074285d482070d8e689860e-800x533-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "beds"
+      },
+      "title": "Beds"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-chairs",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-bd50182b32cf1c6d67e23e0fea52b9811accbe7f-800x1200-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "chairs"
+      },
+      "title": "Chairs"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-lighting",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-0565f1a5d40f8477c0b244098109ae0376c1224d-800x1200-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "lighting"
+      },
+      "title": "Lighting"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-sofas",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-a41c7e8bd0e43c6c1723ab5cbf302c69ac480e12-800x533-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "sofas"
+      },
+      "title": "Sofas"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-storage",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-3eed3b34851825cec291514161a3284b159ce944-800x1200-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "storage"
+      },
+      "title": "Storage"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "category-tables",
+      "_rev": "nPUVeP3iqg5mUyF4EYuQPT",
+      "_type": "category",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-c386e78858693d83b87f51ad23b992f4f5147231-800x999-jpg",
+          "_type": "reference"
+        }
+      },
+      "slug": {
+        "_type": "slug",
+        "current": "tables"
+      },
+      "title": "Tables"
+    },
+    {
+      "_createdAt": "2026-10-02T13:06:11Z",
+      "_id": "e1f239dd-c516-405a-b410-926b31631a21",
+      "_rev": "143e5996-cd64-496a-a1c1-64837f202c82",
+      "_type": "product",
+      "_updatedAt": "2026-10-02T13:08:06Z",
+      "category": {
+        "_ref": "MkqYT7UWd5XmsayfLV9J3p",
+        "_type": "reference"
+      },
+      "colors": [
+        "red",
+        "olive"
+      ],
+      "description": "haan mai saree hu kya bolte company haan mai saree hu kya bolte company ",
+      "fabric": "velvet",
+      "featured": true,
+      "fit": "regular",
+      "gender": "women",
+      "images": [
+        {
+          "_key": "5e0517e2-fc5d-4221-b04f-4a8dec253f02",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-588627e837a1343efb3edf287b7f0035b07371d9-452x678-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "Saree Gulab",
+      "pattern": "printed",
+      "price": 500,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "haan mai saree hu kya bolte company "
+      },
+      "stock": 50
+    },
+    {
+      "_createdAt": "2026-10-03T13:36:36Z",
+      "_id": "f159e840-ca9f-4c12-8541-5eec68bdc353",
+      "_rev": "fa781f6f-eb28-4d58-acd1-f1602903203c",
+      "_type": "product",
+      "_updatedAt": "2026-10-03T13:37:18Z",
+      "category": {
+        "_ref": "Ztihj8evCSR8pf2MDNVzZf",
+        "_type": "reference"
+      },
+      "colors": [
+        "white",
+        "navy",
+        "green",
+        "pink",
+        "brown",
+        "blue",
+        "burgundy",
+        "olive",
+        "grey"
+      ],
+      "description": "fbklsvbwlkfvkv",
+      "fabric": "velvet",
+      "fit": "regular",
+      "gender": "unisex",
+      "images": [
+        {
+          "_key": "835bfc47-dbab-4ab2-9840-1f1aa93ef73c",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-588627e837a1343efb3edf287b7f0035b07371d9-452x678-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "bsjfcbscbjk",
+      "pattern": "striped",
+      "price": 4545,
+      "size": [
+        "L",
+        "XS",
+        "XXL"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "fnklevn"
+      },
+      "stock": 4543
+    },
+    {
+      "_createdAt": "2026-09-26T14:35:39Z",
+      "_id": "fde3959b-1d29-4bf0-8e2c-b5538748423d",
+      "_rev": "8ae9fae3-6706-42f7-a72f-d18026416afb",
+      "_type": "product",
+      "_updatedAt": "2026-09-26T14:38:35Z",
+      "color": "white",
+      "fabric": "denim",
+      "featured": true,
+      "fit": "regular",
+      "gender": "men",
+      "images": [
+        {
+          "_key": "60906bab-6847-4ccb-bddc-01f527f6d32d",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-39b26af6a9994668d655144363a60422f75dd8d9-640x640-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "name": "Kapda hu",
+      "pattern": "solid",
+      "slug": {
+        "_type": "slug",
+        "current": "Hello mai ek pakda hu mujhe log pehnete hai aur kya hi batau mujhe kharid lo i am project testing"
+      },
+      "stock": 10
+    },
+    {
+      "_createdAt": "2026-10-03T12:54:59Z",
+      "_id": "ifwPoTDmnn7bQil0bZs4ca",
+      "_rev": "ifwPoTDmnn7bQil0bZs4aT",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:54:59Z",
+      "departments": [
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "boys"
+      },
+      "title": "Boys"
+    },
+    {
+      "_createdAt": "2026-10-03T12:55:00Z",
+      "_id": "ifwPoTDmnn7bQil0bZs4pG",
+      "_rev": "ifwPoTDmnn7bQil0bZs4n9",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:55:00Z",
+      "departments": [
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "girls"
+      },
+      "title": "Girls"
+    },
+    {
+      "_createdAt": "2026-10-03T12:55:04Z",
+      "_id": "ifwPoTDmnn7bQil0bZs7U4",
+      "_rev": "ifwPoTDmnn7bQil0bZs7Rx",
+      "_type": "category",
+      "_updatedAt": "2026-10-03T12:55:04Z",
+      "departments": [
+        "kids"
+      ],
+      "slug": {
+        "_type": "slug",
+        "current": "kids-casual-wear"
+      },
+      "title": "Kids Casual Wear"
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-arc-floor-lamp",
+      "_rev": "MkqYT7UWd5XmsayfLTepF5",
+      "_type": "product",
+      "_updatedAt": "2026-09-29T13:35:10Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-lighting",
+        "_type": "reference"
+      },
+      "color": "natural",
+      "description": "Iconic arc floor lamp in brushed brass with white linen drum shade. Adjustable arm extends up to 200cm, perfect for lighting over sofas and reading chairs. Marble base ensures stability.",
+      "dimensions": "40cm base x 200cm height x 180cm reach",
+      "featured": true,
+      "images": [
+        {
+          "_key": "m7e5yb4n",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-14b3e9ad853161cc1064e89303f981105057f644-1200x1800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Brass Arc Floor Lamp",
+      "price": 449.99,
+      "slug": {
+        "_type": "slug",
+        "current": "arc-floor-lamp"
+      },
+      "stock": 11
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-ergonomic-office-chair",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "color": "black",
+      "description": "Premium office chair designed for all-day comfort. Features adjustable lumbar support, 4D armrests, breathable mesh back, and synchronized tilt mechanism. BIFMA certified for durability.",
+      "dimensions": "70cm x 70cm x 120cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "rfscy66g",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-cc3f832864b20797f2604b2b4631a63caaa9c5d4-1200x1800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Executive Ergonomic Office Chair",
+      "price": 599.99,
+      "slug": {
+        "_type": "slug",
+        "current": "ergonomic-office-chair"
+      },
+      "stock": 25
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-four-poster-bed",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-beds",
+        "_type": "reference"
+      },
+      "color": "black",
+      "description": "Contemporary take on the classic four-poster bed. Clean-lined black metal frame creates architectural interest without overwhelming the space. Compatible with canopy drapes for a romantic touch.",
+      "dimensions": "Queen: 175cm x 215cm x 200cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "58kpyzmi",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-62e2726b0cd3b3a3b12784665f51c07254e76fd5-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Modern Four Poster Bed",
+      "price": 999.99,
+      "slug": {
+        "_type": "slug",
+        "current": "four-poster-bed"
+      },
+      "stock": 0
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-glass-side-table",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-tables",
+        "_type": "reference"
+      },
+      "color": "white",
+      "description": "Minimalist side table with 12mm tempered glass top and brushed stainless steel legs. The transparent design keeps your space feeling open and airy. Set of 2.",
+      "dimensions": "45cm x 45cm x 55cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "9m99664r",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-b12744645640ceb278758df790573fefd0d7a629-1200x1600-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "glass",
+      "name": "Tempered Glass Side Table",
+      "price": 299.99,
+      "slug": {
+        "_type": "slug",
+        "current": "glass-side-table"
+      },
+      "stock": 22
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-industrial-bookshelf",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-storage",
+        "_type": "reference"
+      },
+      "color": "black",
+      "description": "Five-tier ladder bookshelf combining rustic wood shelves with sturdy metal frame. Leaning design saves floor space while providing ample storage. Perfect for books, plants, and decorative objects.",
+      "dimensions": "80cm x 35cm x 180cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "t396g2f0",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-2009f1aa41df221bbd1e15757c805163420d0291-1200x830-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Industrial Ladder Bookshelf",
+      "price": 349.99,
+      "slug": {
+        "_type": "slug",
+        "current": "industrial-bookshelf"
+      },
+      "stock": 16
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-industrial-console",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-tables",
+        "_type": "reference"
+      },
+      "color": "black",
+      "description": "Raw industrial style meets refined design. Reclaimed elm wood top paired with blackened steel frame. Perfect for hallways, behind sofas, or as a home bar setup.",
+      "dimensions": "140cm x 40cm x 80cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "ppj48m0q",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-77d55b525cd9fcff35b005f3d0312efb2099efdf-1200x1800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Industrial Console Table",
+      "price": 549.99,
+      "slug": {
+        "_type": "slug",
+        "current": "industrial-console"
+      },
+      "stock": 11
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-leather-accent-chair",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "color": "walnut",
+      "description": "Mid-century modern accent chair in rich cognac leather. Features a solid walnut wood frame with hand-stitched leather upholstery. A timeless piece that adds warmth to any space.",
+      "dimensions": "75cm x 80cm x 85cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "2z91zq29",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-1ae20674ecbd1eeeaba2d24d092a30202d4ecafb-1200x1802-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "leather",
+      "name": "Cognac Leather Accent Chair",
+      "price": 749.99,
+      "slug": {
+        "_type": "slug",
+        "current": "leather-accent-chair"
+      },
+      "stock": 8
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-leather-chesterfield",
+      "_rev": "MkqYT7UWd5XmsayfLTepF5",
+      "_type": "product",
+      "_updatedAt": "2026-09-29T13:35:10Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-sofas",
+        "_type": "reference"
+      },
+      "color": "walnut",
+      "description": "Classic British craftsmanship meets luxury in this hand-tufted Chesterfield sofa. Made from full-grain leather that develops a beautiful patina over time. Features traditional button detailing and rolled arms.",
+      "dimensions": "230cm x 100cm x 80cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "at7dgqzr",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-8d0bda2fa08728cfe543925f1b368ec9d6a35143-1200x800-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "muynkcxy",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-161fdad529025badbd779a6d2f2095534910c83c-1200x1800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "leather",
+      "name": "Vintage Leather Chesterfield",
+      "price": 2499.99,
+      "slug": {
+        "_type": "slug",
+        "current": "leather-chesterfield"
+      },
+      "stock": 4
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-marble-coffee-table",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-tables",
+        "_type": "reference"
+      },
+      "color": "white",
+      "description": "Luxurious coffee table featuring a genuine Carrara marble top with distinctive grey veining. Supported by a sleek brushed brass base. Each piece is unique due to the natural stone variations.",
+      "dimensions": "120cm x 60cm x 40cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "r0rn5abb",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-1df704873317252047228c9d5da806fdfb2a7516-1200x1798-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "glass",
+      "name": "Carrara Marble Coffee Table",
+      "price": 899.99,
+      "slug": {
+        "_type": "slug",
+        "current": "marble-coffee-table"
+      },
+      "stock": 4
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-media-console",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-storage",
+        "_type": "reference"
+      },
+      "color": "walnut",
+      "description": "Mid-century inspired TV console in rich walnut veneer. Features slatted sliding doors that hide cables and devices, open center shelf, and integrated cable management. Supports TVs up to 75 inches.",
+      "dimensions": "180cm x 45cm x 55cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "qjdjuxqa",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-c474680d03db4979f36283d539acf22438edd23f-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Walnut Media Console",
+      "price": 799.99,
+      "slug": {
+        "_type": "slug",
+        "current": "media-console"
+      },
+      "stock": 10
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-minimalist-white-sofa",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-sofas",
+        "_type": "reference"
+      },
+      "color": "white",
+      "description": "Pure simplicity in design. This minimalist sofa features removable linen covers for easy cleaning, making it perfect for families. Low-profile design with hidden metal legs creates a floating appearance.",
+      "dimensions": "200cm x 90cm x 75cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "5qhirn5i",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-8f7a2eb0716a276dff9953c97bdbd1ad04ec4488-1200x1200-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "fabric",
+      "name": "Minimalist White Linen Sofa",
+      "price": 899.99,
+      "slug": {
+        "_type": "slug",
+        "current": "minimalist-white-sofa"
+      },
+      "stock": 18
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-modular-shelving",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-storage",
+        "_type": "reference"
+      },
+      "color": "white",
+      "description": "Versatile cube storage system that you can configure to fit your space. Each module connects seamlessly. Available in white, oak, or walnut finish. Set of 6 cubes.",
+      "dimensions": "Each cube: 40cm x 40cm x 40cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "3f2j42s5",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-e4554a6cbf40d438a662ae81043955167ef4e2ca-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Modular Cube Shelving System",
+      "price": 449.99,
+      "slug": {
+        "_type": "slug",
+        "current": "modular-shelving"
+      },
+      "stock": 20
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-nordic-grey-sofa",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-sofas",
+        "_type": "reference"
+      },
+      "color": "grey",
+      "description": "A stunning Scandinavian-inspired sofa featuring clean lines and plush cushioning. The Nordic Grey Sofa combines timeless design with exceptional comfort, perfect for modern living spaces. Upholstered in premium bouclé fabric with solid oak legs.",
+      "dimensions": "220cm x 95cm x 85cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "9hmjr0bk",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-6a5507caf13b6d72c48defdbc9590ba352b7a4b6-1200x800-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "7l2m8a1q",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-bc0b39b7d36ba9aea4914365ac266507c276b828-1200x1932-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "fabric",
+      "name": "Nordic Grey 3-Seater Sofa",
+      "price": 1299.99,
+      "slug": {
+        "_type": "slug",
+        "current": "nordic-grey-sofa"
+      },
+      "stock": 12
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-oak-dining-chair",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "color": "oak",
+      "description": "Handcrafted from sustainable solid oak, this dining chair combines durability with elegant design. Curved backrest provides excellent lumbar support. Sold individually - perfect for mixing and matching.",
+      "dimensions": "45cm x 52cm x 85cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "b9edkv7d",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-4c036fcf9ef917f8224d817fbc2212011ca5b619-1200x1799-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "l38dody3",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-cd58be7d525cf9bd32d0afa2fac765c25b27bc80-1200x1511-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Solid Oak Dining Chair",
+      "price": 249.99,
+      "slug": {
+        "_type": "slug",
+        "current": "oak-dining-chair"
+      },
+      "stock": 48
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-oak-platform-bed",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-beds",
+        "_type": "reference"
+      },
+      "color": "oak",
+      "description": "Zen-inspired platform bed in solid white oak. Low-profile design with integrated nightstands. No box spring required - slat system provides excellent mattress support and ventilation. Available in King and Super King.",
+      "dimensions": "King: 200cm x 210cm x 35cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "wcom7vb4",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-41e74cdefff63a1f79264e3da7a887fb9ddb6031-1200x800-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "p1je3rwi",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-b12d0ea7aa1fd26cc0ccf1aa9ab4104e1af2d4ca-1200x1434-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Japanese Oak Platform Bed",
+      "price": 1899.99,
+      "slug": {
+        "_type": "slug",
+        "current": "oak-platform-bed"
+      },
+      "stock": 6
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-oak-wardrobe",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-storage",
+        "_type": "reference"
+      },
+      "color": "oak",
+      "description": "Spacious double wardrobe in light oak with soft-close doors. Interior features adjustable shelving, full-width hanging rail, and built-in drawers. Minimalist design fits seamlessly into modern bedrooms.",
+      "dimensions": "150cm x 60cm x 200cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "rlh815at",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-8e4e83826777a2e42bf2cfeead4793014315a9ce-1200x1800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Scandinavian Oak Wardrobe",
+      "price": 1199.99,
+      "slug": {
+        "_type": "slug",
+        "current": "oak-wardrobe"
+      },
+      "stock": 4
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-pendant-cluster",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-lighting",
+        "_type": "reference"
+      },
+      "color": "white",
+      "description": "Statement lighting cluster featuring 5 hand-blown glass globes at varying heights. Creates beautiful ambient lighting over dining tables or in entryways. Compatible with smart bulbs.",
+      "dimensions": "Cluster: 60cm diameter, cables adjustable to 150cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "79pnin7w",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-022c280bea419a7c50420fd41608a824bf2818eb-1200x960-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "glass",
+      "name": "Glass Globe Pendant Cluster",
+      "price": 599.99,
+      "slug": {
+        "_type": "slug",
+        "current": "pendant-cluster"
+      },
+      "stock": 7
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-rattan-lounge-chair",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-chairs",
+        "_type": "reference"
+      },
+      "color": "natural",
+      "description": "Bring bohemian charm to your home with this handwoven rattan lounge chair. Lightweight yet sturdy, perfect for sunrooms, patios, or reading nooks. Includes cream linen cushion.",
+      "dimensions": "70cm x 85cm x 100cm",
+      "featured": false,
+      "images": [
+        {
+          "_key": "xgjsdioz",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-00b43329486380ddec8e89f5d908ca8e316459fd-1200x1500-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Natural Rattan Lounge Chair",
+      "price": 449.99,
+      "slug": {
+        "_type": "slug",
+        "current": "rattan-lounge-chair"
+      },
+      "stock": 15
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-table-lamp-ceramic",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-lighting",
+        "_type": "reference"
+      },
+      "color": "grey",
+      "description": "Artisan-made ceramic table lamp with reactive glaze finish - each piece is unique. Topped with natural linen shade. Perfect bedside or accent lighting. LED bulb included.",
+      "dimensions": "30cm diameter x 55cm height",
+      "featured": false,
+      "images": [
+        {
+          "_key": "r588ers4",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-ff3ed3027ae4058abe2764268780854140ab6ddf-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "glass",
+      "name": "Ceramic Table Lamp",
+      "price": 179.99,
+      "slug": {
+        "_type": "slug",
+        "current": "ceramic-table-lamp"
+      },
+      "stock": 30
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-upholstered-bed-frame",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-beds",
+        "_type": "reference"
+      },
+      "color": "grey",
+      "description": "Hotel-luxury bed frame with deep button-tufted headboard in soft grey velvet. Solid wood frame construction with reinforced center support. Creates a stunning focal point for any bedroom.",
+      "dimensions": "King: 195cm x 220cm x 130cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "c9bxao5o",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-34be76b79bdaefe0903469fa7e216c47486d3cc9-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "fabric",
+      "name": "Velvet Upholstered Bed Frame",
+      "price": 1299.99,
+      "slug": {
+        "_type": "slug",
+        "current": "upholstered-bed-frame"
+      },
+      "stock": 9
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-velvet-emerald-sofa",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-sofas",
+        "_type": "reference"
+      },
+      "color": "natural",
+      "description": "Make a bold statement with this luxurious emerald velvet sofa. Art deco inspired design with channel tufting and brass-finished legs. A showstopper piece that transforms any room.",
+      "dimensions": "210cm x 95cm x 82cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "9gfrde9r",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-a0612a378b74f45f575bfefc7aea2bf0365e4be7-1200x800-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "fabric",
+      "name": "Velvet Emerald Statement Sofa",
+      "price": 1799.99,
+      "slug": {
+        "_type": "slug",
+        "current": "velvet-emerald-sofa"
+      },
+      "stock": 3
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-wall-sconce",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": false,
+      "category": {
+        "_ref": "category-lighting",
+        "_type": "reference"
+      },
+      "color": "black",
+      "description": "Pair of adjustable wall sconces in matte black finish with exposed Edison bulbs. Swing-arm design allows directional lighting. Hardwired or plug-in installation options. Bulbs included.",
+      "dimensions": "20cm x 25cm, extends 35cm from wall",
+      "featured": false,
+      "images": [
+        {
+          "_key": "r01vieux",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-70c4197b5ec3bc76e5f5d405fa94d9d75f54ca61-1200x1600-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "metal",
+      "name": "Industrial Wall Sconce Pair",
+      "price": 199.99,
+      "slug": {
+        "_type": "slug",
+        "current": "wall-sconce"
+      },
+      "stock": 24
+    },
+    {
+      "_createdAt": "2026-09-19T05:37:29Z",
+      "_id": "product-walnut-dining-table",
+      "_rev": "N96yaAD0hCPZe3Fycq7na7",
+      "_type": "product",
+      "_updatedAt": "2026-09-19T05:37:42Z",
+      "assemblyRequired": true,
+      "category": {
+        "_ref": "category-tables",
+        "_type": "reference"
+      },
+      "color": "walnut",
+      "description": "Elegant walnut dining table that extends from 180cm to 240cm, seating up to 10 guests. Features a butterfly leaf extension system and tapered legs. Protected with a durable matte lacquer finish.",
+      "dimensions": "180-240cm x 100cm x 75cm",
+      "featured": true,
+      "images": [
+        {
+          "_key": "qr6au97n",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-7e02c349dd63ca6e61975b5ab273cc2b762b1d99-1200x1498-jpg",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "pekx7v3a",
+          "_type": "image",
+          "asset": {
+            "_ref": "image-c58e78c0027d62479608e0ea5f5e15b97d962ba8-1200x1383-jpg",
+            "_type": "reference"
+          }
+        }
+      ],
+      "material": "wood",
+      "name": "Walnut Extending Dining Table",
+      "price": 1499.99,
+      "slug": {
+        "_type": "slug",
+        "current": "walnut-dining-table"
+      },
+      "stock": 7
+    }
+  ]
+}
