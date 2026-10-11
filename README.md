@@ -23,7 +23,6 @@ Kumar Collection is a Next.js storefront and administration system for clothing.
 - [Security and data integrity](#security-and-data-integrity)
 - [System diagrams](#system-diagrams)
 - [Known limitations](#known-limitations)
-- [License and credits](#license-and-credits)
 
 ## Overview
 
